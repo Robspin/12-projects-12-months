@@ -28,7 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${archivo.variable} ${rethink_sans.variable}`}>{children}</body>
+    <body className={`${archivo.variable} ${rethink_sans.variable}`}>
+      {children}
+      <footer className="h-40 flex justify-center items-center bg-gray-900 w-full mt-40 text-gray-200">
+        <p>Built by <a href="https://github.com/Robspin" target="_blank" className="underline">Robspin</a></p>
+      </footer>
+    </body>
     </html>
   );
 }
