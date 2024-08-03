@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { Archivo } from 'next/font/google'
-import { Rethink_Sans } from 'next/font/google'
+import { Maven_Pro } from 'next/font/google'
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -10,11 +10,7 @@ const archivo = Archivo({
   variable: '--font-archivo',
 })
 
-const rethink_sans = Rethink_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-rethink_sans',
-})
+const mavenPro = Maven_Pro({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "12 Projects in 12 Months",
@@ -28,7 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <body className={`${archivo.variable} ${rethink_sans.variable}`}>
+    <body className={`${archivo.variable} ${mavenPro.className} bg-gray-900`}>
+      <link rel="icon" href="/favicon-12.png" sizes="any"/>
       {children}
       <footer className="h-40 flex justify-center items-center bg-gray-900 w-full mt-40 text-gray-200">
         <p>Built by <a href="https://github.com/Robspin" target="_blank" className="underline">Robspin</a></p>

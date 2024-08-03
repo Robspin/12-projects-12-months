@@ -1,30 +1,9 @@
 import { SVGProps } from 'react'
-
-type ProjectType = {
-    month: string
-    name: string
-    url?: string
-    previewImageUrl: string
-    description?: string
-}
-
-const projects: ProjectType[] = [
-    {
-        month: 'April',
-        name: 'Akira Trading Bot',
-        url: 'https://next-akira-ui.vercel.app/',
-        previewImageUrl: '/akira-trading-bot.png',
-    },
-    {
-        month: 'May',
-        name: 'Smiley Showdown',
-        url: 'https://smiley-showdown.vercel.app/',
-        previewImageUrl: '/smiley-showdown.png',
-    },
-]
+import Image from 'next/image'
+import { projects, ProjectType } from '../../utils/projects'
 
 function Project({ project }: { project: ProjectType}) {
-    const { month, name, url, previewImageUrl, description } = project
+    const { month, name, key, description } = project
 
   return (
       <div className="grid gap-6">
@@ -40,15 +19,26 @@ function Project({ project }: { project: ProjectType}) {
               alt="Project 11"
               className="rounded-lg object-cover aspect-[2/1]"
               height={400}
-              src={`/projects/${previewImageUrl}`}
+              src={`/projects/${key}.png`}
               width={800}
           />
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold">{name}</h3>
-            <p className="text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl nec ultricies lacinia, nisl
-              nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
+          <div className="">
+              <div className="flex gap-2 mb-4">
+                <Image src={`/projects/favicons/${key}.png`} alt={name} height={20} width={30} />
+                <h3 className="text-xl font-semibold">{name}</h3>
+              </div>
+            <p className="text-gray-500 mb-4">
+                {description}
             </p>
+              <p className="font-medium p-0">Links: </p>
+              <ul>
+                  <li className="underline">
+                      <a href={`https://${key}.vercel.app`}>View site</a>
+                  </li>
+                  <li className="underline">
+                      <a href={`https://github.com/Robspin/${key}`}>View github</a>
+                  </li>
+              </ul>
           </div>
         </div>
       </div>
@@ -63,12 +53,14 @@ export default function Page() {
           <section className="bg-gray-900 text-white py-20 px-6 flex flex-col items-center justify-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">12 Months 12 Projects</h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl text-center">
-              Follow along as we showcase a new project every month throughout the year.
+              Every month I build a new small project. To challenge and grow my skills
             </p>
           </section>
-          <div className="grid gap-12 p-6 md:p-12">
-            {projects.map((project, i) => <Project key={i} project={project} />)}
-          </div>
+            <section className="flex flex-col items-center justify-center bg-gray-50  ">
+              <div className="grid gap-36 p-6 md:p-12 lg:w-[1024px]">
+                {projects.map((project, i) => <Project key={i} project={project} />)}
+              </div>
+            </section>
         </main>
       </div>
   )
