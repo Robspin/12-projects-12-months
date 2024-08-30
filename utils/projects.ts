@@ -32,4 +32,10 @@ export const projects: ProjectType[] = [
         key: 'next-market-sentiment',
         description: 'What do you get when you want to combine a deno cron, a market sentiment indicator and a sql database. Well in this case Market Mood, a one glance indication of how the crypto markets are doing.'
     },
+    {
+        month: 'August',
+        name: 'BizBase',
+        key: 'next-bizbase',
+        description: 'Iterating on the Business Pokedex I wanted to make a more professional landing page to potentially launch as a Saas.'
+    }
 ]
