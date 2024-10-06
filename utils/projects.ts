@@ -37,5 +37,11 @@ export const projects: ProjectType[] = [
         name: 'BizBase',
         key: 'next-bizbase',
         description: 'Iterating on the Business Pokedex I wanted to make a more professional landing page to potentially launch as a Saas.'
-    }
+    },
+    {
+        month: 'September',
+        name: 'ThreeJS ASCII renderer',
+        key: 'next-three-ascii',
+        description: 'Seeing some ASCII art on twitter I got inspired to try and get a 3D render working with an ASCII shader.'
+    },
 ]
