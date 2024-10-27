@@ -44,4 +44,10 @@ export const projects: ProjectType[] = [
         key: 'next-three-ascii',
         description: 'Seeing some ASCII art on twitter I got inspired to try and get a 3D render working with an ASCII shader.'
     },
+    {
+        month: 'October',
+        name: 'Nippon No Shiro (Famous Castles of Japan)',
+        key: 'next-nippon-no-shiro',
+        description: 'Me being a fan of Japanese history decided to make this months project an overview of the famous Japanese castles.'
+    },
 ]
