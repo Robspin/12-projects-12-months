@@ -5,6 +5,7 @@ export type ProjectType = {
     name: string
     key: string
     description: string
+    gifOnly?: boolean
 }
 
 export const projects: ProjectType[] = [
@@ -49,5 +50,12 @@ export const projects: ProjectType[] = [
         name: 'Nippon No Shiro (Famous Castles of Japan)',
         key: 'next-nippon-no-shiro',
         description: 'Me being a fan of Japanese history decided to make this months project an overview of the famous Japanese castles.'
+    },
+    {
+        month: 'November',
+        name: 'Ninja Village',
+        key: 'next-ninja-village',
+        description: 'This month I found a nice challenge in making a simple game framework for a top-down action rpg in Nextjs. I hope to have it finished as a project in one of the future months so I can share a (simple) playable demo and share the code.',
+        gifOnly: true
     },
 ]

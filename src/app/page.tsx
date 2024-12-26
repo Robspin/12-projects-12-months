@@ -2,8 +2,8 @@ import { SVGProps } from 'react'
 import Image from 'next/image'
 import { projects, ProjectType } from '../../utils/projects'
 
-function Project({ project }: { project: ProjectType}) {
-    const { month, name, key, description } = project
+function Project({ project }: { project: ProjectType }) {
+    const { month, name, key, description, gifOnly } = project
 
   return (
       <div className="grid gap-6">
@@ -19,7 +19,7 @@ function Project({ project }: { project: ProjectType}) {
               alt="Project 11"
               className="rounded-lg object-cover aspect-[2/1]"
               height={400}
-              src={`/projects/${key}.png`}
+              src={`/projects/${key}${gifOnly ? '.gif' : '.png'}`}
               width={800}
           />
           <div className="">
@@ -30,15 +30,19 @@ function Project({ project }: { project: ProjectType}) {
             <p className="text-gray-500 mb-4">
                 {description}
             </p>
-              <p className="font-medium p-0">Links: </p>
-              <ul>
-                  <li className="underline">
-                      <a href={`https://${key}.vercel.app`}>View site</a>
-                  </li>
-                  <li className="underline">
-                      <a href={`https://github.com/Robspin/${key}`}>View github</a>
-                  </li>
-              </ul>
+              {!gifOnly && (
+                  <>
+                      <p className="font-medium p-0">Links: </p>
+                      <ul>
+                          <li className="underline">
+                              <a href={`https://${key}.vercel.app`}>View site</a>
+                          </li>
+                          <li className="underline">
+                              <a href={`https://github.com/Robspin/${key}`}>View github</a>
+                          </li>
+                      </ul>
+                  </>
+              )}
           </div>
         </div>
       </div>
